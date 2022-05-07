@@ -1,0 +1,263 @@
+2022-04-27 22:46:52,834 - INFO - Config:
+2022-04-27 22:46:52,836 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/mortality/TPC",
+    "batch_size": 32,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "TPC",
+    "intermediate_reporting": false,
+    "kernel_size": 4,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00226,
+    "loss": "msle",
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "model_type": "tpc",
+    "n_epochs": 15,
+    "n_layers": 9,
+    "name": "TPC",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "no_skip_connections": false,
+    "no_temp_kernels": 12,
+    "percentage_data": 100.0,
+    "point_size": 13,
+    "point_sizes": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+    ],
+    "save_results_csv": false,
+    "seed": 2510197158,
+    "share_weights": false,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "mortality",
+    "temp_dropout_rate": 0.05,
+    "temp_kernels": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+    ]
+}
+2022-04-27 22:46:53,217 - INFO - Experiment set up.
+2022-04-27 22:46:56,192 - INFO - TempPointConv(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (temp_dropout): Dropout(p=0.05, inplace=False)
+  (empty_module): EmptyModule()
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+  (layer_modules): ModuleDict(
+    (0): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(1212, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=237, out_features=13, bias=True)
+      (temp): Conv1d(202, 1212, kernel_size=(4,), stride=(1,), groups=101)
+    )
+    (1): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(1368, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1462, out_features=13, bias=True)
+      (temp): Conv1d(1482, 1368, kernel_size=(4,), stride=(1,), dilation=(3,), groups=114)
+    )
+    (2): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(1524, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1618, out_features=13, bias=True)
+      (temp): Conv1d(1651, 1524, kernel_size=(4,), stride=(1,), dilation=(6,), groups=127)
+    )
+    (3): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(1680, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1774, out_features=13, bias=True)
+      (temp): Conv1d(1820, 1680, kernel_size=(4,), stride=(1,), dilation=(9,), groups=140)
+    )
+    (4): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(1836, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1930, out_features=13, bias=True)
+      (temp): Conv1d(1989, 1836, kernel_size=(4,), stride=(1,), dilation=(12,), groups=153)
+    )
+    (5): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(1992, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2086, out_features=13, bias=True)
+      (temp): Conv1d(2158, 1992, kernel_size=(4,), stride=(1,), dilation=(15,), groups=166)
+    )
+    (6): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(2148, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2242, out_features=13, bias=True)
+      (temp): Conv1d(2327, 2148, kernel_size=(4,), stride=(1,), dilation=(18,), groups=179)
+    )
+    (7): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(2304, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2398, out_features=13, bias=True)
+      (temp): Conv1d(2496, 2304, kernel_size=(4,), stride=(1,), dilation=(21,), groups=192)
+    )
+    (8): ModuleDict(
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (bn_temp): MyBatchNorm1d(2460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2554, out_features=13, bias=True)
+      (temp): Conv1d(2665, 2460, kernel_size=(4,), stride=(1,), dilation=(24,), groups=205)
+    )
+  )
+  (point_last_los): Linear(in_features=2867, out_features=17, bias=True)
+  (point_last_mort): Linear(in_features=2867, out_features=17, bias=True)
+)
+2022-04-27 22:59:34,247 - INFO - Confusion matrix:
+2022-04-27 22:59:34,248 - INFO - [[29446   521]
+ [ 3332   907]]
+2022-04-27 22:59:35,293 - INFO - Epoch: 0 | Train Loss: 20.2343
+2022-04-27 23:01:41,444 - INFO - Confusion matrix:
+2022-04-27 23:01:41,445 - INFO - [[6500   33]
+ [ 665  203]]
+2022-04-27 23:01:42,325 - INFO - Epoch: 0 | Validation Loss: 15.4800
+2022-04-27 23:14:13,637 - INFO - Confusion matrix:
+2022-04-27 23:14:13,637 - INFO - [[29472   495]
+ [ 2979  1260]]
+2022-04-27 23:14:14,613 - INFO - Epoch: 1 | Train Loss: 15.9618
+2022-04-27 23:16:17,943 - INFO - Confusion matrix:
+2022-04-27 23:16:17,944 - INFO - [[6450   83]
+ [ 539  329]]
+2022-04-27 23:16:18,966 - INFO - Epoch: 1 | Validation Loss: 14.7266
+2022-04-27 23:28:49,128 - INFO - Confusion matrix:
+2022-04-27 23:28:49,129 - INFO - [[29445   522]
+ [ 2766  1473]]
+2022-04-27 23:28:50,269 - INFO - Epoch: 2 | Train Loss: 15.0075
+2022-04-27 23:30:59,188 - INFO - Confusion matrix:
+2022-04-27 23:30:59,189 - INFO - [[6446   87]
+ [ 522  346]]
+2022-04-27 23:31:00,263 - INFO - Epoch: 2 | Validation Loss: 14.7430
+2022-04-27 23:43:28,115 - INFO - Confusion matrix:
+2022-04-27 23:43:28,116 - INFO - [[29419   548]
+ [ 2689  1550]]
+2022-04-27 23:43:29,151 - INFO - Epoch: 3 | Train Loss: 14.3765
+2022-04-27 23:45:31,753 - INFO - Confusion matrix:
+2022-04-27 23:45:31,754 - INFO - [[6447   86]
+ [ 525  343]]
+2022-04-27 23:45:32,740 - INFO - Epoch: 3 | Validation Loss: 14.5674
+2022-04-27 23:58:01,633 - INFO - Confusion matrix:
+2022-04-27 23:58:01,633 - INFO - [[29457   510]
+ [ 2613  1626]]
+2022-04-27 23:58:02,724 - INFO - Epoch: 4 | Train Loss: 13.8557
+2022-04-28 00:00:05,123 - INFO - Confusion matrix:
+2022-04-28 00:00:05,123 - INFO - [[6426  107]
+ [ 513  355]]
+2022-04-28 00:00:06,126 - INFO - Epoch: 4 | Validation Loss: 14.7855
+2022-04-28 00:12:52,290 - INFO - Confusion matrix:
+2022-04-28 00:12:52,291 - INFO - [[29431   536]
+ [ 2539  1700]]
+2022-04-28 00:12:53,271 - INFO - Epoch: 5 | Train Loss: 13.3711
+2022-04-28 00:14:58,099 - INFO - Confusion matrix:
+2022-04-28 00:14:58,100 - INFO - [[6418  115]
+ [ 493  375]]
+2022-04-28 00:14:59,087 - INFO - Epoch: 5 | Validation Loss: 15.3306
+2022-04-28 00:27:35,443 - INFO - Confusion matrix:
+2022-04-28 00:27:35,444 - INFO - [[29411   556]
+ [ 2529  1710]]
+2022-04-28 00:27:36,513 - INFO - Epoch: 6 | Train Loss: 12.8751
+2022-04-28 00:29:46,487 - INFO - Confusion matrix:
+2022-04-28 00:29:46,488 - INFO - [[6396  137]
+ [ 481  387]]
+2022-04-28 00:29:47,625 - INFO - Epoch: 6 | Validation Loss: 15.5028
+2022-04-28 00:42:24,550 - INFO - Confusion matrix:
+2022-04-28 00:42:24,551 - INFO - [[29392   575]
+ [ 2433  1806]]
+2022-04-28 00:42:25,729 - INFO - Epoch: 7 | Train Loss: 12.3288
+2022-04-28 00:44:28,852 - INFO - Confusion matrix:
+2022-04-28 00:44:28,853 - INFO - [[6394  139]
+ [ 484  384]]
+2022-04-28 00:44:29,915 - INFO - Epoch: 7 | Validation Loss: 16.2839
+2022-04-28 00:57:23,195 - INFO - Confusion matrix:
+2022-04-28 00:57:23,197 - INFO - [[29422   545]
+ [ 2398  1841]]
+2022-04-28 00:57:24,406 - INFO - Epoch: 8 | Train Loss: 11.7053
+2022-04-28 00:59:27,997 - INFO - Confusion matrix:
+2022-04-28 00:59:27,998 - INFO - [[6413  120]
+ [ 511  357]]
+2022-04-28 00:59:29,219 - INFO - Epoch: 8 | Validation Loss: 16.9094
+2022-04-28 01:12:07,244 - INFO - Confusion matrix:
+2022-04-28 01:12:07,268 - INFO - [[29471   496]
+ [ 2390  1849]]
+2022-04-28 01:12:08,686 - INFO - Epoch: 9 | Train Loss: 11.1721
+2022-04-28 01:14:13,677 - INFO - Confusion matrix:
+2022-04-28 01:14:13,678 - INFO - [[6438   95]
+ [ 517  351]]
+2022-04-28 01:14:14,754 - INFO - Epoch: 9 | Validation Loss: 17.8117
+2022-04-28 01:26:45,314 - INFO - Confusion matrix:
+2022-04-28 01:26:45,314 - INFO - [[29422   545]
+ [ 2338  1901]]
+2022-04-28 01:26:46,302 - INFO - Epoch: 10 | Train Loss: 10.5633
+2022-04-28 01:28:51,615 - INFO - Confusion matrix:
+2022-04-28 01:28:51,616 - INFO - [[6373  160]
+ [ 480  388]]
+2022-04-28 01:28:52,795 - INFO - Epoch: 10 | Validation Loss: 20.1701
+2022-04-28 01:41:25,520 - INFO - Confusion matrix:
+2022-04-28 01:41:25,521 - INFO - [[29451   516]
+ [ 2326  1913]]
+2022-04-28 01:41:26,511 - INFO - Epoch: 11 | Train Loss: 10.1096
+2022-04-28 01:43:30,424 - INFO - Confusion matrix:
+2022-04-28 01:43:30,425 - INFO - [[6337  196]
+ [ 444  424]]
+2022-04-28 01:43:31,435 - INFO - Epoch: 11 | Validation Loss: 21.7702
+2022-04-28 01:55:57,677 - INFO - Confusion matrix:
+2022-04-28 01:55:57,678 - INFO - [[29457   510]
+ [ 2295  1944]]
+2022-04-28 01:55:58,682 - INFO - Epoch: 12 | Train Loss: 9.5238
+2022-04-28 01:57:53,797 - INFO - Confusion matrix:
+2022-04-28 01:57:53,798 - INFO - [[6374  159]
+ [ 474  394]]
+2022-04-28 01:57:54,730 - INFO - Epoch: 12 | Validation Loss: 23.9948
+2022-04-28 02:09:38,971 - INFO - Confusion matrix:
+2022-04-28 02:09:38,972 - INFO - [[29457   510]
+ [ 2281  1958]]
+2022-04-28 02:09:39,908 - INFO - Epoch: 13 | Train Loss: 9.0109
+2022-04-28 02:11:34,434 - INFO - Confusion matrix:
+2022-04-28 02:11:34,435 - INFO - [[6372  161]
+ [ 479  389]]
+2022-04-28 02:11:35,375 - INFO - Epoch: 13 | Validation Loss: 24.2437
+2022-04-28 02:23:19,743 - INFO - Confusion matrix:
+2022-04-28 02:23:19,744 - INFO - [[29470   497]
+ [ 2248  1991]]
+2022-04-28 02:23:20,770 - INFO - Epoch: 14 | Train Loss: 8.5683
+2022-04-28 02:25:15,294 - INFO - Confusion matrix:
+2022-04-28 02:25:15,295 - INFO - [[6306  227]
+ [ 437  431]]
+2022-04-28 02:25:16,235 - INFO - Epoch: 14 | Validation Loss: 26.9963
+2022-04-28 02:25:16,284 - INFO - Experiment ended. Checkpoints stored =)

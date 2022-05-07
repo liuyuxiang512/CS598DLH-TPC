@@ -1,0 +1,10 @@
+[
+{"test_acc": {"data": 0.9114474058151245, "label": "test_acc", "epoch": 14, "counter": 0.0}},
+{"test_prec0": {"data": 0.9202147126197815, "label": "test_prec0", "epoch": 14, "counter": 0.0}},
+{"test_prec1": {"data": 0.663244366645813, "label": "test_prec1", "epoch": 14, "counter": 0.0}},
+{"test_rec0": {"data": 0.987238347530365, "label": "test_rec0", "epoch": 14, "counter": 0.0}},
+{"test_rec1": {"data": 0.22698524594306946, "label": "test_rec1", "epoch": 14, "counter": 0.0}},
+{"test_auroc": {"data": 0.8520446768308785, "label": "test_auroc", "epoch": 14, "counter": 0.0}},
+{"test_auprc": {"data": 0.46610471545261706, "label": "test_auprc", "epoch": 14, "counter": 0.0}},
+{"test_f1macro": {"data": 0.6453844427261924, "label": "test_f1macro", "epoch": 14, "counter": 0.0}}
+]

@@ -1,0 +1,4 @@
+{
+  "eICU_path": "/home/yuxiang/CS598DLH/TPC-LoS-prediction/eICU_data/",
+  "MIMIC_path": "/home/yuxiang/CS598DLH/TPC-LoS-prediction/MIMIC_data/"
+}

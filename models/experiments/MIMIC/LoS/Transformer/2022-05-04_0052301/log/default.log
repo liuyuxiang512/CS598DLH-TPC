@@ -1,0 +1,120 @@
+2022-05-04 00:52:30,137 - INFO - Config:
+2022-05-04 00:52:30,137 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/LoS/Transformer",
+    "batch_norm": "mybatchnorm",
+    "batch_size": 64,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "d_model": 32,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "Transformer",
+    "feedforward_size": 64,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 36,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "main_dropout_rate": 0,
+    "mode": "test",
+    "n_epochs": 15,
+    "n_heads": 1,
+    "n_layers": 2,
+    "name": "Transformer",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "positional_encoding": false,
+    "save_results_csv": false,
+    "seed": 3969502232,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS",
+    "trans_dropout_rate": 0.05
+}
+2022-05-04 00:52:30,854 - INFO - Experiment set up.
+2022-05-04 00:52:34,758 - INFO - Transformer(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (trans_dropout): Dropout(p=0.05, inplace=False)
+  (main_dropout): Dropout(p=0, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (transformer): TransformerEncoder(
+    (input_embedding): Conv1d(204, 32, kernel_size=(1,), stride=(1,))
+    (pos_encoder): PositionalEncoding()
+    (trans_encoder_layer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): Linear(in_features=32, out_features=32, bias=True)
+      )
+      (linear1): Linear(in_features=32, out_features=64, bias=True)
+      (dropout): Dropout(p=0.05, inplace=False)
+      (linear2): Linear(in_features=64, out_features=32, bias=True)
+      (norm1): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.05, inplace=False)
+      (dropout2): Dropout(p=0.05, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=32, out_features=32, bias=True)
+          )
+          (linear1): Linear(in_features=32, out_features=64, bias=True)
+          (dropout): Dropout(p=0.05, inplace=False)
+          (linear2): Linear(in_features=64, out_features=32, bias=True)
+          (norm1): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.05, inplace=False)
+          (dropout2): Dropout(p=0.05, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=32, out_features=32, bias=True)
+          )
+          (linear1): Linear(in_features=32, out_features=64, bias=True)
+          (dropout): Dropout(p=0.05, inplace=False)
+          (linear2): Linear(in_features=64, out_features=32, bias=True)
+          (norm1): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.05, inplace=False)
+          (dropout2): Dropout(p=0.05, inplace=False)
+        )
+      )
+    )
+  )
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=65, out_features=36, bias=True)
+  (point_mort): Linear(in_features=65, out_features=36, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=36, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=36, out_features=1, bias=True)
+)
+2022-05-04 03:15:26,297 - INFO - Custom bins confusion matrix:
+2022-05-04 03:15:26,298 - INFO - [[98219 65527 21752  8857  4098  2158  1067   592   904    61]
+ [32419 45361 26060 12964  6949  3966  2281  1237  1836   136]
+ [12152 25124 19487 12467  7404  4597  2893  1993  2835   412]
+ [ 5144 14893 13644  9965  6688  4782  3131  2058  3993   454]
+ [ 2841  9000  9436  7870  5614  4259  3007  2223  4403   862]
+ [ 1828  6255  6804  6168  4687  3671  3021  2091  4597   987]
+ [ 1216  4449  5209  5000  3690  2910  2392  1990  4624  1213]
+ [  795  3015  3939  3887  2879  2421  2170  1724  4413  1355]
+ [ 2239  7787 11321 11053  9836  8816  7591  6533 19482  7635]
+ [ 1283  4465  6674  7826  7691  6038  5054  4714 21483 16181]]
+2022-05-04 03:15:28,013 - INFO - Test Loss: 95.5549
+2022-05-04 03:15:28,060 - INFO - Experiment ended. Checkpoints stored =)

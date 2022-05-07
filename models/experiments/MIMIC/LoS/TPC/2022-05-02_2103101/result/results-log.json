@@ -1,0 +1,8 @@
+[
+{"test_mad": {"data": 2.897343098671251, "label": "test_mad", "epoch": 14, "counter": 0.0}},
+{"test_mse": {"data": 55.24683047245923, "label": "test_mse", "epoch": 14, "counter": 0.0}},
+{"test_mape": {"data": 62.56856219776273, "label": "test_mape", "epoch": 14, "counter": 0.0}},
+{"test_msle": {"data": 0.5641664709615588, "label": "test_msle", "epoch": 14, "counter": 0.0}},
+{"test_r2": {"data": 0.289369091362369, "label": "test_r2", "epoch": 14, "counter": 0.0}},
+{"test_kappa": {"data": 0.6655726964168246, "label": "test_kappa", "epoch": 14, "counter": 0.0}}
+]

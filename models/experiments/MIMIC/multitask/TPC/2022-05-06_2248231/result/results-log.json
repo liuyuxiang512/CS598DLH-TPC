@@ -1,0 +1,16 @@
+[
+{"test_mad": {"data": 2.2413267830782875, "label": "test_mad", "epoch": 9, "counter": 0.0}},
+{"test_mse": {"data": 44.21106980279326, "label": "test_mse", "epoch": 9, "counter": 0.0}},
+{"test_mape": {"data": 32.219066773193504, "label": "test_mape", "epoch": 9, "counter": 0.0}},
+{"test_msle": {"data": 0.1929016891560239, "label": "test_msle", "epoch": 9, "counter": 0.0}},
+{"test_r2": {"data": 0.43132026874442, "label": "test_r2", "epoch": 9, "counter": 0.0}},
+{"test_kappa": {"data": 0.853808667845283, "label": "test_kappa", "epoch": 9, "counter": 0.0}},
+{"test_acc": {"data": 0.9212095737457275, "label": "test_acc", "epoch": 9, "counter": 0.0}},
+{"test_prec0": {"data": 0.9444016814231873, "label": "test_prec0", "epoch": 9, "counter": 0.0}},
+{"test_prec1": {"data": 0.7108938694000244, "label": "test_prec1", "epoch": 9, "counter": 0.0}},
+{"test_rec0": {"data": 0.9673449993133545, "label": "test_rec0", "epoch": 9, "counter": 0.0}},
+{"test_rec1": {"data": 0.5850574970245361, "label": "test_rec1", "epoch": 9, "counter": 0.0}},
+{"test_auroc": {"data": 0.9184781130494857, "label": "test_auroc", "epoch": 9, "counter": 0.0}},
+{"test_auprc": {"data": 0.7261523381845413, "label": "test_auprc", "epoch": 9, "counter": 0.0}},
+{"test_f1macro": {"data": 0.7988009956194004, "label": "test_f1macro", "epoch": 9, "counter": 0.0}}
+]

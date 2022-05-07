@@ -1,0 +1,76 @@
+2022-05-04 02:53:05,421 - INFO - Config:
+2022-05-04 02:53:05,422 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/LoS/LSTM",
+    "batch_norm": "mybatchnorm",
+    "batch_size": 32,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 36,
+    "learning_rate": 0.00163,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.25,
+    "main_dropout_rate": 0,
+    "mode": "test",
+    "n_epochs": 8,
+    "n_layers": 1,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 1572055011,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2022-05-04 02:53:05,988 - INFO - Experiment set up.
+2022-05-04 02:53:09,388 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.25, inplace=False)
+  (main_dropout): Dropout(p=0, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, dropout=0.25)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=36, bias=True)
+  (point_mort): Linear(in_features=161, out_features=36, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=36, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=36, out_features=1, bias=True)
+)
+2022-05-04 04:20:46,678 - INFO - Custom bins confusion matrix:
+2022-05-04 04:20:46,680 - INFO - [[114090  58203  16812   6509   3184   1800   1128    591    846     72]
+ [ 43017  44690  21284  10245   5585   3219   2034   1148   1806    181]
+ [ 17629  26994  17339   9991   6191   3957   2543   1588   2726    406]
+ [  8377  17090  12592   8406   5424   4021   2762   1946   3565    569]
+ [  4737  11191   9082   6646   4641   3614   2644   2110   4134    716]
+ [  3266   7567   7015   5470   4224   3399   2288   1706   4370    804]
+ [  2388   5195   5457   4333   3467   2953   2060   1738   4150    952]
+ [  1517   3915   3929   3220   2873   2351   1902   1574   4298   1019]
+ [  3558  10373  10927  10019   9467   8238   7024   6154  19732   6801]
+ [  2297   5636   7153   6539   6606   6669   5885   5025  22283  13316]]
+2022-05-04 04:20:48,858 - INFO - Test Loss: 99.8624
+2022-05-04 04:20:49,010 - INFO - Experiment ended. Checkpoints stored =)

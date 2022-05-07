@@ -1,0 +1,167 @@
+2022-05-02 21:48:37,169 - INFO - Config:
+2022-05-02 21:48:37,169 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/eICU/LoS/Transformer",
+    "batch_size": 32,
+    "batch_size_test": 256,
+    "batchnorm": "mybatchnorm",
+    "d_model": 16,
+    "dataset": "eICU",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "Transformer",
+    "feedforward_size": 256,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00017,
+    "loss": "msle",
+    "main_dropout_rate": 0.45,
+    "mode": "test",
+    "n_epochs": 15,
+    "n_heads": 2,
+    "n_layers": 6,
+    "name": "Transformer",
+    "no_diag": false,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "positional_encoding": false,
+    "save_results_csv": false,
+    "seed": 1187329490,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS",
+    "trans_dropout_rate": 0
+}
+2022-05-02 21:48:44,092 - INFO - Experiment set up.
+2022-05-02 21:48:47,975 - INFO - Transformer(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (trans_dropout): Dropout(p=0, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (transformer): TransformerEncoder(
+    (input_embedding): Conv1d(176, 16, kernel_size=(1,), stride=(1,))
+    (pos_encoder): PositionalEncoding()
+    (trans_encoder_layer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): Linear(in_features=16, out_features=16, bias=True)
+      )
+      (linear1): Linear(in_features=16, out_features=256, bias=True)
+      (dropout): Dropout(p=0, inplace=False)
+      (linear2): Linear(in_features=256, out_features=16, bias=True)
+      (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0, inplace=False)
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=16, out_features=16, bias=True)
+          )
+          (linear1): Linear(in_features=16, out_features=256, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+          (linear2): Linear(in_features=256, out_features=16, bias=True)
+          (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0, inplace=False)
+          (dropout2): Dropout(p=0, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=16, out_features=16, bias=True)
+          )
+          (linear1): Linear(in_features=16, out_features=256, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+          (linear2): Linear(in_features=256, out_features=16, bias=True)
+          (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0, inplace=False)
+          (dropout2): Dropout(p=0, inplace=False)
+        )
+        (2): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=16, out_features=16, bias=True)
+          )
+          (linear1): Linear(in_features=16, out_features=256, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+          (linear2): Linear(in_features=256, out_features=16, bias=True)
+          (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0, inplace=False)
+          (dropout2): Dropout(p=0, inplace=False)
+        )
+        (3): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=16, out_features=16, bias=True)
+          )
+          (linear1): Linear(in_features=16, out_features=256, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+          (linear2): Linear(in_features=256, out_features=16, bias=True)
+          (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0, inplace=False)
+          (dropout2): Dropout(p=0, inplace=False)
+        )
+        (4): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=16, out_features=16, bias=True)
+          )
+          (linear1): Linear(in_features=16, out_features=256, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+          (linear2): Linear(in_features=256, out_features=16, bias=True)
+          (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0, inplace=False)
+          (dropout2): Dropout(p=0, inplace=False)
+        )
+        (5): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): Linear(in_features=16, out_features=16, bias=True)
+          )
+          (linear1): Linear(in_features=16, out_features=256, bias=True)
+          (dropout): Dropout(p=0, inplace=False)
+          (linear2): Linear(in_features=256, out_features=16, bias=True)
+          (norm1): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0, inplace=False)
+          (dropout2): Dropout(p=0, inplace=False)
+        )
+      )
+    )
+  )
+  (diagnosis_encoder): Linear(in_features=293, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=145, out_features=17, bias=True)
+  (point_mort): Linear(in_features=145, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2022-05-03 02:20:46,815 - INFO - Custom bins confusion matrix:
+2022-05-03 02:20:46,816 - INFO - [[208756 170088  34647  15970   8372   4300   2275   1376   1336     27]
+ [ 71716 111857  34782  20639  12554   6443   3556   1731   1511     42]
+ [ 27804  61849  25480  18563  13354   7199   3844   1924   1632     39]
+ [ 12760  35089  17536  14951  11595   7239   3922   2197   1914     39]
+ [  6507  20685  12238  11522   9972   6789   3608   2033   2244     60]
+ [  3642  12746   8681   8800   7957   5993   3403   1940   2063     70]
+ [  2036   8532   6580   6677   6466   5141   3114   1725   2041     55]
+ [  1317   6077   4812   5435   5412   4025   2875   1566   1785     86]
+ [  3079  15246  13716  15887  18241  14786  10624   6475   8123    252]
+ [  1282   6796   7911  10060  11260  10216   7506   6522  10368    471]]
+2022-05-03 02:20:48,981 - INFO - Test Loss: 90.0499
+2022-05-03 02:20:49,008 - INFO - Experiment ended. Checkpoints stored =)
