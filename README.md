@@ -91,7 +91,7 @@ To set the mode from training to testing, we just need to apply "--mode test". F
 python3 -m models.run_tpc --mode test
 ```
 
-We also tried all the aforementioned settings in the testing mode. All the commands can be found in *running_tpc.ipynb*, *running_lstm.ipynb*, and *running_transformer.ipynb*.
+We also tried all the aforementioned settings in the testing mode. All the commands can be found in [*running_tpc.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), [*running_lstm.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), and [*running_transformer.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_transformer.ipynb).
 
 ### Results
 
