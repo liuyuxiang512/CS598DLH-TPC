@@ -121,7 +121,7 @@ TPC(MSLE) | 1.43 | 35.2 | 18.61 | 0.31 | 0.46 | 0.77
 TPC(MSE) | 2.04 | 119.28 | 19.34 | 1.68 | 0.44 | 0.62
 
 #### Claim 3 & 4: Comparison of LoS / Mortality in Singl-task and Multi-task Settings
-
+![results of claim 3 & 4](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/claim34_results.PNG)
 
 #### Ablation studies:
 Model         | MAD  | MAPE   | MSE   | MSLE | R<sup>2</sup> | Kappa 
