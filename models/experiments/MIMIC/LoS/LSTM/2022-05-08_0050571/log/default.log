@@ -1,0 +1,178 @@
+2022-05-08 00:50:57,291 - INFO - Config:
+2022-05-08 00:50:57,292 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/LoS/LSTM",
+    "batch_norm": "mybatchnorm",
+    "batch_size": 32,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": true,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 8,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 36,
+    "learning_rate": 0.00163,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.25,
+    "main_dropout_rate": 0,
+    "mode": "test",
+    "n_epochs": 20,
+    "n_layers": 1,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 3844178543,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2022-05-08 00:50:57,803 - INFO - Experiment set up.
+2022-05-08 00:51:00,976 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.25, inplace=False)
+  (main_dropout): Dropout(p=0, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (channelwise_lstm_list): ModuleList(
+    (0): LSTM(2, 8, dropout=0.25)
+    (1): LSTM(2, 8, dropout=0.25)
+    (2): LSTM(2, 8, dropout=0.25)
+    (3): LSTM(2, 8, dropout=0.25)
+    (4): LSTM(2, 8, dropout=0.25)
+    (5): LSTM(2, 8, dropout=0.25)
+    (6): LSTM(2, 8, dropout=0.25)
+    (7): LSTM(2, 8, dropout=0.25)
+    (8): LSTM(2, 8, dropout=0.25)
+    (9): LSTM(2, 8, dropout=0.25)
+    (10): LSTM(2, 8, dropout=0.25)
+    (11): LSTM(2, 8, dropout=0.25)
+    (12): LSTM(2, 8, dropout=0.25)
+    (13): LSTM(2, 8, dropout=0.25)
+    (14): LSTM(2, 8, dropout=0.25)
+    (15): LSTM(2, 8, dropout=0.25)
+    (16): LSTM(2, 8, dropout=0.25)
+    (17): LSTM(2, 8, dropout=0.25)
+    (18): LSTM(2, 8, dropout=0.25)
+    (19): LSTM(2, 8, dropout=0.25)
+    (20): LSTM(2, 8, dropout=0.25)
+    (21): LSTM(2, 8, dropout=0.25)
+    (22): LSTM(2, 8, dropout=0.25)
+    (23): LSTM(2, 8, dropout=0.25)
+    (24): LSTM(2, 8, dropout=0.25)
+    (25): LSTM(2, 8, dropout=0.25)
+    (26): LSTM(2, 8, dropout=0.25)
+    (27): LSTM(2, 8, dropout=0.25)
+    (28): LSTM(2, 8, dropout=0.25)
+    (29): LSTM(2, 8, dropout=0.25)
+    (30): LSTM(2, 8, dropout=0.25)
+    (31): LSTM(2, 8, dropout=0.25)
+    (32): LSTM(2, 8, dropout=0.25)
+    (33): LSTM(2, 8, dropout=0.25)
+    (34): LSTM(2, 8, dropout=0.25)
+    (35): LSTM(2, 8, dropout=0.25)
+    (36): LSTM(2, 8, dropout=0.25)
+    (37): LSTM(2, 8, dropout=0.25)
+    (38): LSTM(2, 8, dropout=0.25)
+    (39): LSTM(2, 8, dropout=0.25)
+    (40): LSTM(2, 8, dropout=0.25)
+    (41): LSTM(2, 8, dropout=0.25)
+    (42): LSTM(2, 8, dropout=0.25)
+    (43): LSTM(2, 8, dropout=0.25)
+    (44): LSTM(2, 8, dropout=0.25)
+    (45): LSTM(2, 8, dropout=0.25)
+    (46): LSTM(2, 8, dropout=0.25)
+    (47): LSTM(2, 8, dropout=0.25)
+    (48): LSTM(2, 8, dropout=0.25)
+    (49): LSTM(2, 8, dropout=0.25)
+    (50): LSTM(2, 8, dropout=0.25)
+    (51): LSTM(2, 8, dropout=0.25)
+    (52): LSTM(2, 8, dropout=0.25)
+    (53): LSTM(2, 8, dropout=0.25)
+    (54): LSTM(2, 8, dropout=0.25)
+    (55): LSTM(2, 8, dropout=0.25)
+    (56): LSTM(2, 8, dropout=0.25)
+    (57): LSTM(2, 8, dropout=0.25)
+    (58): LSTM(2, 8, dropout=0.25)
+    (59): LSTM(2, 8, dropout=0.25)
+    (60): LSTM(2, 8, dropout=0.25)
+    (61): LSTM(2, 8, dropout=0.25)
+    (62): LSTM(2, 8, dropout=0.25)
+    (63): LSTM(2, 8, dropout=0.25)
+    (64): LSTM(2, 8, dropout=0.25)
+    (65): LSTM(2, 8, dropout=0.25)
+    (66): LSTM(2, 8, dropout=0.25)
+    (67): LSTM(2, 8, dropout=0.25)
+    (68): LSTM(2, 8, dropout=0.25)
+    (69): LSTM(2, 8, dropout=0.25)
+    (70): LSTM(2, 8, dropout=0.25)
+    (71): LSTM(2, 8, dropout=0.25)
+    (72): LSTM(2, 8, dropout=0.25)
+    (73): LSTM(2, 8, dropout=0.25)
+    (74): LSTM(2, 8, dropout=0.25)
+    (75): LSTM(2, 8, dropout=0.25)
+    (76): LSTM(2, 8, dropout=0.25)
+    (77): LSTM(2, 8, dropout=0.25)
+    (78): LSTM(2, 8, dropout=0.25)
+    (79): LSTM(2, 8, dropout=0.25)
+    (80): LSTM(2, 8, dropout=0.25)
+    (81): LSTM(2, 8, dropout=0.25)
+    (82): LSTM(2, 8, dropout=0.25)
+    (83): LSTM(2, 8, dropout=0.25)
+    (84): LSTM(2, 8, dropout=0.25)
+    (85): LSTM(2, 8, dropout=0.25)
+    (86): LSTM(2, 8, dropout=0.25)
+    (87): LSTM(2, 8, dropout=0.25)
+    (88): LSTM(2, 8, dropout=0.25)
+    (89): LSTM(2, 8, dropout=0.25)
+    (90): LSTM(2, 8, dropout=0.25)
+    (91): LSTM(2, 8, dropout=0.25)
+    (92): LSTM(2, 8, dropout=0.25)
+    (93): LSTM(2, 8, dropout=0.25)
+    (94): LSTM(2, 8, dropout=0.25)
+    (95): LSTM(2, 8, dropout=0.25)
+    (96): LSTM(2, 8, dropout=0.25)
+    (97): LSTM(2, 8, dropout=0.25)
+    (98): LSTM(2, 8, dropout=0.25)
+    (99): LSTM(2, 8, dropout=0.25)
+    (100): LSTM(2, 8, dropout=0.25)
+  )
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=841, out_features=36, bias=True)
+  (point_mort): Linear(in_features=841, out_features=36, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=36, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=36, out_features=1, bias=True)
+)
+2022-05-08 11:14:11,339 - INFO - Custom bins confusion matrix:
+2022-05-08 11:14:11,341 - INFO - [[108566  60728  18564   7402   3578   1783   1074    604    816    120]
+ [ 37279  44448  23263  12548   6921   3557   2214   1141   1604    234]
+ [ 14796  25972  17904  11410   7318   4581   2778   1652   2650    303]
+ [  7007  15548  12711   9385   6716   4660   2900   2017   3327    481]
+ [  4219   9592   9105   7494   5645   3924   2964   2143   3828    601]
+ [  2549   6717   7000   5892   4898   3568   2793   1976   4058    658]
+ [  1836   4810   5076   4634   4055   3331   2308   1710   4259    674]
+ [  1206   3250   3949   3713   3209   2850   2181   1614   3728    898]
+ [  2978   8800  11424  10996  10331   9885   8044   6511  17832   5492]
+ [  1327   4854   7020   7917   7832   7616   6853   5608  21477  10905]]
+2022-05-08 11:14:12,842 - INFO - Test Loss: 97.0002
+2022-05-08 11:14:12,865 - INFO - Experiment ended. Checkpoints stored =)
