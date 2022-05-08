@@ -94,6 +94,8 @@ python3 -m models.run_tpc --mode test
 We also tried all the aforementioned settings in the testing mode. All the commands we have run can be found in [*running_tpc.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), [*running_lstm.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), and [*running_transformer.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_transformer.ipynb).
 
 ### Results
+Following the original paper, we consider six metrics: MAD, MAPE, MSE, MSLE, R<sup>2</sup>, and Kappa. For the first four, lower is better. For the last two, higher is better.
+
 #### Claim 1: Comparisons with Baselines on eICU and MIMIC-IV
 ##### eICU
 Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
