@@ -94,8 +94,40 @@ python3 -m models.run_tpc --mode test
 We also tried all the aforementioned settings in the testing mode. All the commands we have run can be found in [*running_tpc.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), [*running_lstm.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), and [*running_transformer.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_transformer.ipynb).
 
 ### Results
-#### Claim 1:
-#### Claim 2:
-#### Claim 3:
-#### Claim 4:
+#### Claim 1: Comparisons with Baselines on eICU and MIMIC-IV
+##### eICU
+Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
+--- | --- | --- | --- | --- | --- | ---
+Mean* | 3.21 | 395.7 | 29.5 | 2.87 | 0 | 0
+Median* | 2.76 | 184.4 | 32.6 | 2.15 | -0.11 | 0
+APACHE-IV | 2.54 | 182.1 | 16.6 | 1.1 | -0.01 | 0.2
+LSTM | 2.63 | 126.63 | 30.77 | 1.45 | 0.12 | 0.32
+Transformer | 2.57 | 121.89 | 30.2 | 1.41 | 0.13 | 0.34
+TPC | 1.43 | 35.2 | 18.61 | 0.31 | 0.46 | 0.77
+##### MIMIC-IV
+Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
+--- | --- | --- | --- | --- | --- | ---
+Mean* | 5.24 | 474.9 | 77.7 | 2.8 | 0 | 0
+Median* | 4.6 | 216.8 | 86.8 | 2.09 | -0.12 | 0
+LSTM | 3.67 | 106.17 | 66.07 | 1.26 | 0.15 | 0.43
+CW LSTM | 3.68 | 108.79 | 66.52 | 1.22 | 0.14 | 0.43
+Transformer | 3.63 | 115.92 | 63.93 | 1.21 | 0.18 | 0.44
+TPC | 2.23 | 30.43 | 41.28 | 0.18 | 0.47 | 0.85
+
+#### Claim 2: Comparison of Two Loss Functions
+Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
+--- | --- | --- | --- | --- | --- | ---
+TPC(MSLE) | 1.43 | 35.2 | 18.61 | 0.31 | 0.46 | 0.77
+TPC(MSE) | 2.04 | 119.28 | 19.34 | 1.68 | 0.44 | 0.62
+
+#### Claim 3 & 4: Comparison of LoS / Mortality in Singl-task and Multi-task Settings
+
+
 #### Ablation studies:
+Model         | MAD  | MAPE   | MSE   | MSLE | R<sup>2</sup> | Kappa 
+--- | --- | --- | --- | --- | --- | ---
+TPC           | 1.43 | 35.2   | 18.61 | 0.31 | 0.46  | 0.77  
+Point. only   | 3.28 | 172.24 | 43.7  | 1.59 | -0.24 | 0.45  
+Temp. only    | 1.57 | 47.68  | 18.89 | 0.44 | 0.46  | 0.74  
+WS            | 2.51 | 128.58 | 28.44 | 1.36 | 0.18  | 0.38  
+TPC (no skip) | 1.63 | 51.51  | 19.68 | 0.51 | 0.43  | 0.72  
