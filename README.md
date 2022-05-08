@@ -2,7 +2,7 @@
 
 This is a reproduction project of paper 188 "Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit".
 
-## Citation
+## 1 Citation
 ```
 @inproceedings{rocheteau2021,
 author = {Rocheteau, Emma and Li\`{o}, Pietro and Hyland, Stephanie},
@@ -22,26 +22,26 @@ series = {CHIL '21}
 }
 ```
 
-## Link to the original repo
+## 2 Link to the original repo
 We mainly reused the existing codes in the authors' [repo](https://github.com/EmmaRocheteau/TPC-LoS-prediction).
 
-## Environment preparation
+## 3 Environment preparation
 
-### Python setup
+### 3.1 Python setup
 Make sure to install python 3.6 for this project. Install all dependencies by 
 
 	pip install -r requirements.txt
 
-### Database setup
+### 3.2 Database setup
 - You must have access to [eICU database](https://physionet.org/content/eicu-crd/2.0/) and [MIMIC-IV database](https://physionet.org/content/mimiciv/0.4/)
 
 - You must also have the tool `postgres` installed to access the database.
 
-### Pre-processing
-#### eICU
+### 3.3 Pre-processing
+#### 3.3.1 eICU
 Follow the **eICU** part of the **Pre-processing Instructions** section of the [original repo's](https://github.com/EmmaRocheteau/TPC-LoS-prediction) readme file. This will likely take you more than 15 hours to finish.
 
-#### MIMIC-IV
+#### 3.3.2 MIMIC-IV
 The initial steps of the original repo's MIMIC guide was confusing, you should follow this guide first.
 
 Follow the installation guide on this [repo](https://github.com/EmmaRocheteau/MIMIC-IV-Postgres) to set up the project. Notice that the `dbname` should be the same as the one you use later, here the default value is `mimic4`, which is different than the original guide.
@@ -62,8 +62,8 @@ Now we need to solve the batch loading bug. You can use a data loader to drop th
 
 The whole pre processing task will will likely take you 0.5 to 2 days depending on your hardware and will require at least 100 GB of free disk space. 
 
-## Running the models
-### Training
+## 4 Running the models
+### 4.1 Training
 To train the proposed TPC model in default setting:
 ```
 python3 -m models.run_tpc
@@ -83,7 +83,7 @@ Then you can get logs of training and validation results.
 
 To reproduce the main experiments, we also tried different setting with "--dataset MIMIC" for all models; "--loss mse", "--task mortality", "--task multitask", "--model_type pointwise_only", "--model_type temp_only", "--model_type temp_only -share_weights", "-no_skip_connections" for the proposed TPC model.
 
-### Evaluation
+### 4.2 Evaluation
 The best hyper-parameters are provided for part of the settings. We have changed the codes so that when running the test cases, the models choose the best hyper-parameter combination automatically.
 
 To set the mode from training to testing, we just need to apply "--mode test". For example, when testing the TPC with the best hyper-parameters.
@@ -93,10 +93,10 @@ python3 -m models.run_tpc --mode test
 
 We also tried all the aforementioned settings in the testing mode. All the commands we have run can be found in [*running_tpc.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), [*running_lstm.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_tpc.ipynb), and [*running_transformer.ipynb*](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/running_transformer.ipynb).
 
-### Results
+### 4.3 Results
 Following the original paper, we consider six metrics: MAD, MAPE, MSE, MSLE, R<sup>2</sup>, and Kappa. For the first four, lower is better. For the last two, higher is better.
 
-#### Claim 1: Comparisons with Baselines on eICU and MIMIC-IV
+#### 4.3.1 Claim 1: Comparisons with Baselines on eICU and MIMIC-IV
 ##### eICU
 Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
 --- | --- | --- | --- | --- | --- | ---
@@ -116,16 +116,16 @@ CW LSTM | 3.68 | 108.79 | 66.52 | 1.22 | 0.14 | 0.43
 Transformer | 3.63 | 115.92 | 63.93 | 1.21 | 0.18 | 0.44
 TPC | 2.23 | 30.43 | 41.28 | 0.18 | 0.47 | 0.85
 
-#### Claim 2: Comparison of Two Loss Functions
+#### 4.3.2 Claim 2: Comparison of Two Loss Functions
 Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
 --- | --- | --- | --- | --- | --- | ---
 TPC(MSLE) | 1.43 | 35.2 | 18.61 | 0.31 | 0.46 | 0.77
 TPC(MSE) | 2.04 | 119.28 | 19.34 | 1.68 | 0.44 | 0.62
 
-#### Claim 3 & 4: Comparison of LoS / Mortality in Singl-task and Multi-task Settings
+#### 4.3.3 Claim 3 & 4: Comparison of LoS / Mortality in Singl-task and Multi-task Settings
 ![results of claim 3 & 4](https://github.com/liuyuxiang512/CS598DLH-TPC/blob/main/claim34_results.PNG)
 
-#### Ablation studies:
+#### 4.3.4 Ablation studies:
 Model         | MAD  | MAPE   | MSE   | MSLE | R<sup>2</sup> | Kappa 
 --- | --- | --- | --- | --- | --- | ---
 TPC           | 1.43 | 35.2   | 18.61 | 0.31 | 0.46  | 0.77  
