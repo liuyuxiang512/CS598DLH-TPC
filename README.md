@@ -1,7 +1,8 @@
-# CS598DLH-TPC Project Code Guide for paper 188
+# CS598DLH-TPC Project
+
+This is a reproduction project of paper 188 "Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit".
 
 ## Citation
-This is a reproduction project of the following paper.
 ```
 @inproceedings{rocheteau2021,
 author = {Rocheteau, Emma and Li\`{o}, Pietro and Hyland, Stephanie},
@@ -20,6 +21,9 @@ location = {Virtual Event, USA},
 series = {CHIL '21}
 }
 ```
+
+## Link to the original repo
+We mainly reused the existing codes in the authors' [repo](https://github.com/EmmaRocheteau/TPC-LoS-prediction).
 
 ## Environment preparation
 
@@ -56,7 +60,13 @@ Now we need to solve the batch loading bug. You can use a data loader to drop th
 
 	sed -i '$ d' {target file name}.csv
 
-The whole pre processing task will will likely take you 0.5 to 2 days depending on your hardware and will require at least 100 GB of free disk space.
-### Running the models
+The whole pre processing task will will likely take you 0.5 to 2 days depending on your hardware and will require at least 100 GB of free disk space. 
 
-To validate the claims, we need to run the following scripts in ??? environment by ?????
+## Running the models
+
+### Training
+
+### Evaluation
+
+### Results
+
