@@ -63,10 +63,35 @@ Now we need to solve the batch loading bug. You can use a data loader to drop th
 The whole pre processing task will will likely take you 0.5 to 2 days depending on your hardware and will require at least 100 GB of free disk space. 
 
 ## Running the models
-
 ### Training
+To train the proposed TPC model in default setting:
+```
+python3 -m models.run_tpc
+```
+
+To train the baseline LSTM (CW LSTM) in default setting:
+```
+python3 -m models.run_lstm (-channelwise)
+```
+
+To train the baseline Transformer in default setting:
+```
+python3 -m models.run_transformer
+```
+
+Then you can get logs of training and validation results.
+
+To reproduce the main experiments, we also tried different setting with "--dataset MIMIC" for all models; "--loss mse", "--task mortality", "--task multitask", "--model_type pointwise_only", "--model_type temp_only", "--model_type temp_only -share_weights", "-no_skip_connections" for the proposed TPC model.
 
 ### Evaluation
+The best hyper-parameters are provided for part of the settings. We have changed the codes so that when running the test cases, the models choose the best hyper-parameter combination automatically.
+
+To set the mode from training to testing, we just need to apply "--mode test". For example, when testing the TPC with the best hyper-parameters.
+```
+python3 -m models.run_tpc --mode test
+```
+
+We also tried all the aforementioned settings in the testing mode. All the commands can be found in *running_tpc.ipynb*, *running_lstm.ipynb*, and *running_transformer.ipynb*.
 
 ### Results
 
