@@ -1,5 +1,26 @@
 # CS598DLH-TPC Project Code Guide for paper 188
 
+## Citation
+This is a reproduction project of the following paper.
+```
+@inproceedings{rocheteau2021,
+author = {Rocheteau, Emma and Li\`{o}, Pietro and Hyland, Stephanie},
+title = {Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit},
+year = {2021},
+isbn = {9781450383592},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3450439.3451860},
+doi = {10.1145/3450439.3451860},
+booktitle = {Proceedings of the Conference on Health, Inference, and Learning},
+pages = {58–68},
+numpages = {11},
+keywords = {intensive care unit, length of stay, temporal convolution, mortality, patient outcome prediction},
+location = {Virtual Event, USA},
+series = {CHIL '21}
+}
+```
+
 ## Environment preparation
 
 ### Python setup
@@ -39,5 +60,3 @@ The whole pre processing task will will likely take you 0.5 to 2 days depending 
 ### Running the models
 
 To validate the claims, we need to run the following scripts in ??? environment by ?????
-
-
